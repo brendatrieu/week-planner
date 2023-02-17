@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Week Planner</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div id="container">
     <div class="row">
@@ -35,15 +37,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr id="1">
             <td class="table-column-one">10:00</td>
             <td class="table-column-two">Practice algorithms
-              <button class="update-button">Update</button>
+              <div class="edit-buttons">
+                <button class="update-button">Update</button>
+                <button class="delete-button">Delete</button>
+              </div>
             </td>
           </tr>
           <tr>
-            <td class="table-column-one">12:00</td>
-            <td class="table-column-two">Go for a run</td>
+            <td class="table-column-one">22:00</td>
+            <td class="table-column-two">Go for a run
+              <div class="edit-buttons">
+                <button class="update-button">Update</button>
+                <button class="delete-button">Delete</button>
+              </div>
+            </td>
           </tr>
           <tr>
             <td class="table-column-one"></td>
@@ -75,4 +85,5 @@
     <script src="data.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>

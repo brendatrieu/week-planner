@@ -39,6 +39,7 @@ button:hover {
 table {
   text-align: left;
   border: 2.5px black solid;
+  border-collapse: collapse;
 }
 
 th {
@@ -76,10 +77,23 @@ tr:nth-child(odd) {
   background-color: lightgray;
 }
 
+.edit-buttons {
+  display: flex;
+}
+
 .update-button {
-  height: 100%;
-  margin: auto 20% 0 auto;
+  margin: auto 5% 0 auto;
   background-color: rgb(43, 120, 228);
+}
+
+.delete-button {
+  margin: auto 15% 0 auto;
+  background-color: red;
+}
+
+.update-button,
+.delete-button {
+  height: 100%;
   color: white;
   box-shadow: 0.1rem 0.1rem black;
 }
