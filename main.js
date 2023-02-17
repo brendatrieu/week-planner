@@ -13,7 +13,7 @@ if (localStorage.getItem('plannerEntries')) {
 }
 
 var $form = document.querySelector('form');
-// var $submitButton = document.querySelector('.submit-button');
+var $submitButton = document.querySelector('.submit-button');
 var $submitModal = document.querySelector('#modal');
 
 var logEntry = event => {
@@ -77,18 +77,17 @@ var renderEntry = entry => {
   $deleteButton.className = 'delete-button';
 
   // Assign text content
+  $tdTime.textContent = entry.time;
+  $tdDesc.textContent = entry.description;
 
   // Append elements
-  // $imgDiv.appendChild($imgEl);
-  // $titleDiv.appendChild($imgTitle);
-  // $titleDiv.appendChild($editIcon);
-  // $textDiv.appendChild($titleDiv);
-  // $textDiv.appendChild($imgNotes);
-  // $liDiv.appendChild($imgDiv);
-  // $liDiv.appendChild($textDiv);
-  // $entryLi.appendChild($liDiv);
+  $buttonDiv.appendChild($updateButton);
+  $buttonDiv.appendChild($deleteButton);
+  $tdDesc.appendChild($buttonDiv);
+  $tr.appendChild($tdTime);
+  $tr.appendChild($tdDesc);
 
-  return $entryLi;
+  return $tr;
 };
 
 $form.addEventListener('submit', logEntry);
@@ -124,3 +123,11 @@ $updateButton.addEventListener('click', showModal);
 
 var $addEntry = document.querySelector('.add-entry');
 $addEntry.addEventListener('click', showModal);
+
+var $entryList = document.querySelector('tbody');
+
+document.addEventListener('DOMContentLoaded', function (entries) {
+  for (var entry = 0; entry < entries.length; entry++) {
+    $entryList.append(renderEntry(entries[entry]));
+  }
+});
