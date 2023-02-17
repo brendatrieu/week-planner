@@ -126,7 +126,7 @@ $addEntry.addEventListener('click', showModal);
 
 var $entryList = document.querySelector('tbody');
 
-document.addEventListener('DOMContentLoaded', function (entries) {
+document.addEventListener('DOMContentLoaded', function (data.entries) {
   for (var entry = 0; entry < entries.length; entry++) {
     $entryList.append(renderEntry(entries[entry]));
   }
