@@ -79,6 +79,8 @@ var renderEntry = entry => {
   // Assign text content
   $tdTime.textContent = entry.time;
   $tdDesc.textContent = entry.description;
+  $updateButton.textContent = 'Update';
+  $deleteButton.textContent = 'Delete';
 
   // Append elements
   $buttonDiv.appendChild($updateButton);
@@ -126,8 +128,9 @@ $addEntry.addEventListener('click', showModal);
 
 var $entryList = document.querySelector('tbody');
 
-document.addEventListener('DOMContentLoaded', function (data.entries) {
+document.addEventListener('DOMContentLoaded', loadContent(data.entries));
+function loadContent(entries) {
   for (var entry = 0; entry < entries.length; entry++) {
     $entryList.append(renderEntry(entries[entry]));
   }
-});
+}

@@ -73,7 +73,7 @@ tr {
   justify-content: space-between;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
   background-color: lightgray;
 }
 
