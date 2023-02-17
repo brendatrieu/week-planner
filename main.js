@@ -84,3 +84,15 @@
 
 // $form.addEventListener('submit', logEntry);
 // $submitButton.addEventListener('click', submitClose);
+var $deleteModal = document.querySelector('#modal-delete');
+var $deleteButton = document.querySelector('.delete-button');
+var $confirmButton = document.querySelector('#confirm-button');
+var $cancelButton = document.querySelector('#cancel-button');
+$deleteButton.addEventListener('click', function (event) {
+  $deleteModal.className = '';
+});
+$confirmButton.addEventListener('click', hideDelete);
+function hideDelete(event) {
+  $deleteModal.className = 'hidden';
+}
+$cancelButton.addEventListener('click', hideDelete);
