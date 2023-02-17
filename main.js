@@ -1,6 +1,6 @@
 // var $form = document.querySelector('form');
 // var $submitButton = document.querySelector('.submit-button');
-// var $submitModal = document.querySelector('#modal');
+var $submitModal = document.querySelector('#modal');
 
 // var logEntry = event => {
 //   event.preventDefault();
@@ -91,8 +91,26 @@ var $cancelButton = document.querySelector('#cancel-button');
 $deleteButton.addEventListener('click', function (event) {
   $deleteModal.className = '';
 });
+
 $confirmButton.addEventListener('click', hideDelete);
 function hideDelete(event) {
   $deleteModal.className = 'hidden';
 }
+
+function showDelete(event) {
+  if (event.target.className === 'delete-button') {
+    $deleteModal.className = '';
+  }
+}
 $cancelButton.addEventListener('click', hideDelete);
+
+var $table = document.querySelector('table');
+$table.addEventListener('click', showDelete);
+
+var $updateButton = document.querySelector('.update-button');
+$updateButton.addEventListener('click', showModal);
+function showModal(event) {
+  if (event.target.className === 'update-button' || event.target.className === 'add-entry') {
+    $submitModal.className = '';
+  }
+}
