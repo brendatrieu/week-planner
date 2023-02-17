@@ -115,6 +115,25 @@ function showModal(event) {
   }
 }
 
+var renderEntryB = () => {
+
+  // Create all new elements
+  var $tr = document.createElement('tr');
+  var $tdTime = document.createElement('td');
+  var $tdDesc = document.createElement('td');
+
+  // Assign attributes and content to elements
+  $tr.setAttribute('id', '');
+  $tdTime.className = 'table-column-one';
+  $tdDesc.className = 'table-column-two';
+
+  // Append elements
+  $tr.appendChild($tdTime);
+  $tr.appendChild($tdDesc);
+
+  return $tr;
+};
+
 $cancelButton.addEventListener('click', hideDelete);
 
 var $table = document.querySelector('table');
@@ -132,5 +151,8 @@ document.addEventListener('DOMContentLoaded', loadContent(data.entries));
 function loadContent(entries) {
   for (var entry = 0; entry < entries.length; entry++) {
     $entryList.append(renderEntry(entries[entry]));
+  }
+  for (var blank = 9 - entries.length; blank > 0; blank--) {
+    $entryList.append(renderEntryB());
   }
 }
