@@ -68,6 +68,8 @@ tr {
 
 .table-column-two {
   width: 70vw;
+  display: flex;
+  justify-content: space-between;
 }
 
 tr:nth-child(odd) {
@@ -76,7 +78,7 @@ tr:nth-child(odd) {
 
 .update-button {
   height: 100%;
-  margin-left: 30rem;
+  margin: auto 20% 0 auto;
   background-color: rgb(43, 120, 228);
   color: white;
   box-shadow: 0.1rem 0.1rem black;
