@@ -32,17 +32,17 @@ var logEntry = event => {
 
     // var $newDom = renderEntry($newEntry);
     data.nextEntryId++;
-  // } else {
-  //   var $updatedEntry = {
-  //     title: $form.elements.title.value,
-  //     photoUrl: $form.elements['img-src'].value,
-  //     notes: $form.elements['img-notes'].value,
-  //     entryId: data.editing.entryId
-  //   };
+    // } else {
+    //   var $updatedEntry = {
+    //     title: $form.elements.title.value,
+    //     photoUrl: $form.elements['img-src'].value,
+    //     notes: $form.elements['img-notes'].value,
+    //     entryId: data.editing.entryId
+    //   };
 
-  //   data.entries.splice(editEntryIndex, 1, $updatedEntry);
+    //   data.entries.splice(editEntryIndex, 1, $updatedEntry);
 
-  //   var $entryLiNodes = document.querySelectorAll('li[data-entry-id]');
+    //   var $entryLiNodes = document.querySelectorAll('li[data-entry-id]');
 
   //   $entryLiNodes[editEntryIndex].replaceWith(renderEntry($updatedEntry));
   //   $entryFormHeader.textContent = 'New Entry';
@@ -51,6 +51,7 @@ var logEntry = event => {
   // }
   // viewSwap('entries');
   // toggleNoEntries(data.entries);
+  }
 };
 
 var submitClose = () => {
@@ -61,20 +62,21 @@ var renderEntry = entry => {
 
   // Create all new elements
   var $tr = document.createElement('tr');
-  var $td = document.createElement('td');
+  var $tdTime = document.createElement('td');
   var $buttonDiv = document.createElement('div');
+  var $updateButton = document.createElement('button');
+  var $deleteButton = document.createElement('button');
+  var $tdDesc = document.createElement('td');
 
-// Assign attributes and content to elements
+  // Assign attributes and content to elements
+  $tr.setAttribute('id', entry.entryId);
+  $tdTime.className = 'table-column-one';
+  $tdDesc.className = 'table-column-two';
+  $buttonDiv.className = 'edit-buttons';
+  $updateButton.className = 'update-button';
+  $deleteButton.className = 'delete-button';
 
-  // $liDiv.className = 'row';
-  // $entryLi.setAttribute('data-entry-id', entry.entryId);
-  // $imgDiv.className = 'column-half';
-  // $imgEl.setAttribute('src', entry.photoUrl);
-  // $textDiv.className = 'column-half';
-  // $titleDiv.className = 'title-header';
-  // $imgTitle.textContent = entry.title;
-  // $editIcon.className = 'fa-solid fa-pen';
-  // $imgNotes.textContent = entry.notes;
+  // Assign text content
 
   // Append elements
   // $imgDiv.appendChild($imgEl);
