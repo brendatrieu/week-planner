@@ -1,3 +1,8 @@
+body {
+  font-family: "Comic Neue", cursive;
+  font-family: Lato, sans-serif;
+}
+
 h1 {
   text-align: center;
 }
@@ -18,10 +23,49 @@ button {
   background-color: white;
   border: 2px solid black;
   height: 5.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: lightgray;
 }
 
 .add-entry {
   width: 12rem;
   height: 3rem;
   box-shadow: 0.15rem 0.15rem;
+}
+
+table {
+  text-align: left;
+  border: 2.5px black solid;
+}
+
+th {
+  background-color: darkgray;
+}
+
+tbody {
+  border-left: 2px black solid;
+  border-right: 2px black solid;
+}
+
+tr {
+  height: 1.5rem;
+  border-left: 2px black solid;
+  border-right: 2px black solid;
+}
+
+.table-column-one {
+  width: 20vw;
+  border-left: 2px black solid;
+  border-right: 2px black solid;
+}
+
+.table-column-two {
+  width: 70vw;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgray;
 }
