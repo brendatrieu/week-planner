@@ -153,24 +153,26 @@ $addEntry.addEventListener('click', showModal);
 
 var $entryList = document.querySelector('tbody');
 
-document.addEventListener('DOMContentLoaded', loadContent(data.entries));
 function loadContent(entries) {
-  for (var entry = 0; entry < data[data.view + 'entries'].length; entry++) {
-    $entryList.append(renderEntry(data[data.view + 'entries'][entry]));
+  var currentDay = data.view + 'entries';
+  for (var entry = 0; entry < data[currentDay].length; entry++) {
+    $entryList.append(renderEntry(data[currentDay][entry]));
   }
-  for (var blank = 9 - data[data.view + 'entries'].length; blank > 0; blank--) {
+  for (var blank = 9 - data[data.view.value + 'entries'].length; blank > 0; blank--) {
     $entryList.append(renderEntryB());
   }
 }
 
+document.addEventListener('DOMContentLoaded', loadContent(data[data.view + 'entries']));
+
 var viewSwap = event => {
   data.view = event.target.textContent;
-  console.log(event.target.textContent);
+  // console.log(event.target.textContent);
 };
 
 var $rowButtons = document.querySelector('.row-days');
 $rowButtons.addEventListener('click', function () {
-  console.log('dfas');
+  // console.log('dfas');
   viewSwap(event);
   loadContent(data[data.view + 'entries']);
 });
