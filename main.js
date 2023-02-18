@@ -158,7 +158,7 @@ function loadContent(entries) {
   for (var entry = 0; entry < data[currentDay].length; entry++) {
     $entryList.append(renderEntry(data[currentDay][entry]));
   }
-  for (var blank = 9 - data[data.view.value + 'entries'].length; blank > 0; blank--) {
+  for (var blank = 9 - data[data.view + 'entries'].length; blank > 0; blank--) {
     $entryList.append(renderEntryB());
   }
 }
@@ -171,6 +171,7 @@ var viewSwap = event => {
 };
 
 var $rowButtons = document.querySelector('.row-days');
+
 $rowButtons.addEventListener('click', function () {
   // console.log('dfas');
   viewSwap(event);
