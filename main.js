@@ -1,6 +1,12 @@
 var data = {
   view: 'Monday',
-  entries: [],
+  Mondayentries: [],
+  Tuesdayentries: [],
+  Wednesdayentries: [],
+  Thursdayentries: [],
+  Fridayentries: [],
+  Saturdayentries: [],
+  Sundayentries: [],
   editing: null,
   nextEntryId: 1
 };
@@ -27,7 +33,7 @@ var logEntry = event => {
       entryId: data.nextEntryId
     };
 
-    data.entries.unshift($newEntry);
+    data[$newEntry.date + 'entries'].unshift($newEntry);
     $form.reset();
 
     // var $newDom = renderEntry($newEntry);
@@ -149,10 +155,20 @@ var $entryList = document.querySelector('tbody');
 
 document.addEventListener('DOMContentLoaded', loadContent(data.entries));
 function loadContent(entries) {
-  for (var entry = 0; entry < entries.length; entry++) {
-    $entryList.append(renderEntry(entries[entry]));
+  for (var entry = 0; entry < data[data.view + 'entries'].length; entry++) {
+    $entryList.append(renderEntry(data[data.view + 'entries'][entry]));
   }
-  for (var blank = 9 - entries.length; blank > 0; blank--) {
+  for (var blank = 9 - data[data.view + 'entries'].length; blank > 0; blank--) {
     $entryList.append(renderEntryB());
   }
 }
+
+var viewSwap = event => {
+  data.view = event.target.value;
+};
+
+var $rowButtons = document.querySelector('.row-days');
+$rowButtons.addEventListener('click', event => {
+  viewSwap(event);
+  loadContent(data[event.target.value + 'entries']);
+});
