@@ -164,11 +164,13 @@ function loadContent(entries) {
 }
 
 var viewSwap = event => {
-  data.view = event.target.value;
+  data.view = event.target.textContent;
+  console.log(event.target.textContent);
 };
 
 var $rowButtons = document.querySelector('.row-days');
-$rowButtons.addEventListener('click', event => {
+$rowButtons.addEventListener('click', function () {
+  console.log('dfas');
   viewSwap(event);
-  loadContent(data[event.target.value + 'entries']);
+  loadContent(data[data.view + 'entries']);
 });
